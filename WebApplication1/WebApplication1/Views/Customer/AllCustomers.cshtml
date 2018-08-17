@@ -1,0 +1,21 @@
+﻿@model WebApplication1.ViewModels.CustomerViewModel
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+
+
+@foreach (var e in Model.Customers)
+{
+<table class="table">
+    <tr><td>@Html.ActionLink(e.CustomerName, "Edit", "Customer", new { id = e.CustomerId }, null)</td></tr>
+
+    @*  <tr><td> @e.MembershipType.Name </td></tr> *@
+
+</table>
+}
+
+@Html.ActionLink("Add A New Customer", "NewCustomer", "Customer",  new{@class = "btn btn-primary"} )

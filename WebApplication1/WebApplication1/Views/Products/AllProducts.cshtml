@@ -1,0 +1,20 @@
+﻿@model IEnumerable<WebApplication1.Models.Product>
+
+@{
+    ViewBag.Title = "AllProducts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Products</h2>
+
+<ul>
+
+    @foreach (var e in Model)
+    {
+        <li>@Html.ActionLink(e.ProductName, "ProductDetails", "Products", new { i = e.ProductName }, null)</li>
+    }
+
+
+</ul>
+
+@Html.ActionLink("Add a Product", "addProduct", "Products", new {@class = "btn btn-primary"})
